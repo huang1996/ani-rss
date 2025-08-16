@@ -48,11 +48,12 @@ public class AfdianUtil {
      * @return
      */
     public static Boolean verifyExpirationTime() {
-        Config config = ConfigUtil.CONFIG;
-        Long expirationTime = config.getExpirationTime();
+        return true; // 取消时长校验
+        // Config config = ConfigUtil.CONFIG;
+        // Long expirationTime = config.getExpirationTime();
 
-        long time = new Date().getTime();
-        return time < expirationTime;
+        // long time = new Date().getTime();
+        // return time < expirationTime;
     }
 
     /**
@@ -74,36 +75,40 @@ public class AfdianUtil {
      * 请 "盗版者" 存放于私人仓库 私人docker镜像
      */
     public static void verify() {
-        if (!verifyExpirationTime()) {
-            return;
-        }
+        // if (!verifyExpirationTime()) {
+        //     return;
+        // }
 
         Config config = ConfigUtil.CONFIG;
-        Long expirationTime = config.getExpirationTime();
+        // Long expirationTime = config.getExpirationTime();
 
-        if (config.getTryOut()) {
-            TryOut tryOut = getTryOut();
-            Integer day = tryOut.getDay();
-            long time = DateUtil.offsetDay(new Date(), day).getTime();
-            if (expirationTime > time) {
-                expirationTime = time;
-            }
-            config.setExpirationTime(expirationTime);
-            return;
-        }
+        // 注释所有验证直接设置使用时间
+        long time = new Date().getTime();
+        config.setExpirationTime(time);
 
-        String outTradeNo = config.getOutTradeNo();
-        if (StrUtil.isBlank(outTradeNo)) {
-            config.setExpirationTime(0L);
-            return;
-        }
+        // if (config.getTryOut()) {
+        //     TryOut tryOut = getTryOut();
+        //     Integer day = tryOut.getDay();
+        //     long time = DateUtil.offsetDay(new Date(), day).getTime();
+        //     if (expirationTime > time) {
+        //         expirationTime = time;
+        //     }
+        //     config.setExpirationTime(expirationTime);
+        //     return;
+        // }
 
-        Result<Void> result = verifyNo(outTradeNo);
-        Integer code = result.getCode();
-        String message = result.getMessage();
-        if (code != 200) {
-            config.setExpirationTime(0L);
-            log.error(message);
-        }
+        // String outTradeNo = config.getOutTradeNo();
+        // if (StrUtil.isBlank(outTradeNo)) {
+        //     config.setExpirationTime(0L);
+        //     return;
+        // }
+
+        // Result<Void> result = verifyNo(outTradeNo);
+        // Integer code = result.getCode();
+        // String message = result.getMessage();
+        // if (code != 200) {
+        //     config.setExpirationTime(0L);
+        //     log.error(message);
+        // }
     }
 }
