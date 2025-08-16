@@ -52,9 +52,9 @@ public class ConfigUtil {
         String ovaDownloadPath = FilePathUtil.getAbsolutePath(new File(rootPath + "/剧场版"));
         String completedPath = FilePathUtil.getAbsolutePath(new File(rootPath + "/已完结番剧"));
 
-        String downloadPathTemplate = StrFormatter.format("{}/${letter}/${title}/Season ${season}", downloadPath);
-        String ovaDownloadPathTemplate = StrFormatter.format("{}/${letter}/${title}", ovaDownloadPath);
-        String completedPathTemplate = StrFormatter.format("{}/${letter}/${title}/Season ${season}", completedPath);
+        String downloadPathTemplate = StrFormatter.format("{}/${title}/Season ${season}", downloadPath);
+        String ovaDownloadPathTemplate = StrFormatter.format("{}/${title}", ovaDownloadPath);
+        String completedPathTemplate = StrFormatter.format("{}/${title}/Season ${season}", completedPath);
 
         String password = SecureUtil.md5("admin");
 
@@ -158,7 +158,7 @@ public class ConfigUtil {
                 .setScoreShow(true)
                 .setDownloadNew(false)
                 .setInnerIP(false)
-                .setRenameTemplate("[${subgroup}] ${title} S${seasonFormat}E${episodeFormat}")
+                .setRenameTemplate("${title} S${seasonFormat}E${episodeFormat}")
                 .setRenameDelYear(false)
                 .setRenameDelTmdbId(false)
                 .setPriorityKeywordsEnable(false)
