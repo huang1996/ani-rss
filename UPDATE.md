@@ -1,4 +1,4 @@
-feat: 增加代理列表设置
+refactor: 优化通知 执行外部程序 最大存活时间的实现
 
 [请不要将本项目在国内宣传](https://github.com/wushuo894/ani-rss/discussions/504)
 
