@@ -238,6 +238,7 @@ public class ConfigUtil {
                 .setProxyList(proxyList)
                 .setScrape(false)
                 .setReplace(false)
+                .setMaxFileNameLength(0)
                 .setCollectionSoftlinkSwitch(false)
                 .setCollectionSoftlinkRealPathTemplate(collectionSoftlinkRealPathTemplate)
                 .setCollectionSoftlinkTargetPathTemplate(downloadPathTemplate)

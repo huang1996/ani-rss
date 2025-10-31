@@ -655,4 +655,9 @@ public class Config implements Serializable {
      * 当collectionSoftlinkSwitch为真时软连接的目标目录
      */
     private String collectionSoftlinkTargetPathTemplate;
+
+    /**
+     * 最大文件名长度 不包含后缀 如: .mkv .mp4
+     */
+    private Integer maxFileNameLength;
 }
