@@ -5,6 +5,7 @@ COPY docker/exec.sh /exec.sh
 COPY target/ani-rss-jar-with-dependencies.jar /usr/app/ani-rss-jar-with-dependencies.jar
 WORKDIR /usr/app
 VOLUME /config
+VOLUME /vol1/1000/媒体
 ENV PUID=0 PGID=0 UMASK=022
 ENV PORT=7789 CONFIG=/config TZ=Asia/Shanghai
 EXPOSE $PORT
